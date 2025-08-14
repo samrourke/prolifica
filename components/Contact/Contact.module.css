@@ -1,0 +1,35 @@
+.contact {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #111;
+  color: #fff;
+  padding: clamp(2rem, 6vw, 6rem) 1.5rem;
+}
+
+.contactText {
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.contactText h1:first-child {
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 4rem);
+  opacity: 0.9;
+  margin-bottom: 0.6rem;
+}
+
+.contactText h1:last-child {
+  font-weight: 400;
+  font-size: clamp(1.25rem, 3.2vw, 2rem);
+  opacity: 0.85;
+  word-break: break-word;
+}
+
+.contactText h1:last-child a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

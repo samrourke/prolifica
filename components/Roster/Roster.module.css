@@ -1,0 +1,170 @@
+/* Section */
+.roster {
+  padding: 9rem 2rem;
+  background: #fff;
+  color: #111;
+}
+
+.title {
+  display: grid;
+  place-items: center;
+  padding: 2rem 0;
+}
+.title h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Masonry grid (CSS columns) */
+.gridContainer {
+  column-count: 2;
+  column-gap: 0.5rem;
+}
+
+
+/* Card wrapper: make columns respect card as a unit */
+.gridItem {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+}
+
+/* Card */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #000;
+  isolation: isolate;
+  transform: translateZ(0); /* new layer */
+}
+
+/* Image + scrim */
+.imageWrap { position: relative; }
+.imageWrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: scale(1) translateZ(0);
+  transition: transform 1.2s cubic-bezier(.2,.65,.2,1), filter .8s ease;
+  will-change: transform;
+}
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.05));
+  opacity: .0;
+  transition: opacity .6s ease;
+  pointer-events: none;
+}
+
+/* Caption */
+.caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 1rem 1rem 1.1rem;
+  display: grid;
+  gap: .25rem;
+  transform: translateY(8px);
+  opacity: 1;
+  transition: transform .6s cubic-bezier(.2,.65,.2,1), opacity .6s ease;
+  z-index: 2;
+}
+.name {
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.2rem + .5vw, 1.75rem);
+  letter-spacing: .02em;
+  color: #fff;
+}
+.meta {
+  font-size: .85rem;
+  font-weight: 400;;
+  color: rgba(255,255,255,.75);
+}
+
+/* Focus ring for keyboard */
+.focusRing {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(17,17,17,.08);
+  border-radius: 12px;
+  pointer-events: none;
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+
+/* Hover / focus */
+@media (hover:hover) and (pointer:fine) {
+  .gridItem:hover .imageWrap img {
+    transform: scale(1.05);
+    filter: saturate(1.05) contrast(1.02);
+  }
+  .gridItem:hover .scrim { opacity: 1; }
+  .gridItem:hover .caption {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .gridItem:hover .focusRing {
+    box-shadow: 0 10px 28px rgba(0,0,0,.2);
+    border-color: rgba(255,255,255,.25);
+  }
+}
+
+/* Keyboard focus mirrors hover */
+.gridItem:focus-visible .imageWrap img,
+.gridItem:focus .imageWrap img {
+  transform: scale(1.05);
+}
+.gridItem:focus-visible .scrim,
+.gridItem:focus .scrim { opacity: 1; }
+.gridItem:focus-visible .caption,
+.gridItem:focus .caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+.gridItem:focus-visible .focusRing,
+.gridItem:focus .focusRing {
+  box-shadow: 0 10px 28px rgba(0,0,0,.2);
+  border-color: rgba(255,255,255,.25);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .imageWrap img,
+  .scrim,
+  .caption,
+  .focusRing {
+    transition: none !important;
+  }
+}
+
+
+/* Make it 1 column below 800px */
+@media (max-width: 800px) {
+  .roster {
+  padding: 6rem 1.5rem;
+ 
+}
+   .gridContainer {
+    column-count: 1;
+    column-gap: 0;        /* optional: remove gutter on mobile */
+  }
+  .gridItem {
+    margin-bottom: 1rem; /* a touch more breathing room */
+  }
+}
+
+@media (min-width: 900px) {
+  .gridContainer { column-count: 3; }
+}
+@media (min-width: 1600px) {
+  .gridContainer { column-count: 4; }
+}

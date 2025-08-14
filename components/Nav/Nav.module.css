@@ -1,0 +1,164 @@
+.navbar {
+  padding: 1rem 2rem;
+  background-color: #111;
+  color:#fff;
+  position: fixed;
+  inset: 0 0 auto 0; /* top:0; left/right:0 */
+  display: grid;               /* <-- use grid */
+  grid-template-columns: 0px 1fr 180px; /* [burger] [center logo] [spacer] */
+  align-items: center;
+  z-index: 2;
+  transition: background-color 1s ease;
+}
+
+
+.logoWrapper{
+  align-self: center;
+
+  width:fit-content
+}
+
+.logo{
+  width:150px;
+  height: auto;
+  transition: filter 1s ease;
+  
+}
+
+
+.toggleButton {                /* burger sits in the right track */
+  justify-self: end;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px; height: 21px;
+  background: none; border: 0; cursor: pointer;
+  z-index: 10;
+}
+
+
+
+.toggleButton span {
+  display: block;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+ 
+}
+
+.toggleButton.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 7.5px);
+}
+
+.toggleButton.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.toggleButton.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -7.5px);
+}
+
+.toggleButton > span.open {
+ color:#fff;
+ filter:invert(0);
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0; padding: 0;
+}
+
+.navList li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  position: relative;
+}
+
+.navList li a {
+  position: relative;             /* for the ::after positioning */
+  display: inline-block;          /* helps with width & transforms */
+  color: inherit;                 /* take color from nav state */
+  text-decoration: none;
+}
+
+/* base underline, hidden */
+.navList li a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;       /* <-- matches the link color */
+  transform: scaleX(0);           /* performant animation */
+  transform-origin: left;
+  opacity: 0.85;
+  transition: transform .4s ease;
+}
+
+/* active (or hover) state */
+.navList li a.active::after,
+.navList li a:hover::after{
+  transform: scaleX(1);
+}
+
+
+
+
+@media (max-width: 768px) {
+  .navbar{
+    padding:1rem 1rem;
+     grid-template-columns: 0px 1fr 10px; /* [burger] [center logo] [spacer] */
+  }
+
+  .logo{
+  width:120px;
+  height: auto;
+  transition: filter 1s ease;
+  
+}
+
+
+    .navbar ul{
+        width: 100%;
+        height:100%;
+        align-items: center;
+        justify-content: space-evenly;
+      
+    }
+
+  .toggleButton {
+    display: flex;
+  }
+
+    /* Hide desktop inline list */
+  .navList { display: none; }
+
+    /* Use the same <ul> as a full-screen overlay when active */
+  .navList.active {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    background: #111;
+    z-index: 5; 
+    gap:5rem;         /* below the burger, above content */
+  }
+
+  .navList.active li a {
+    font-weight: bold;
+    font-size: clamp(2rem, 6vw, 3rem);
+    text-decoration: none;
+    color:#fff
+  }
+
+
+
+}

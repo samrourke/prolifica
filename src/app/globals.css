@@ -1,42 +1,118 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============ Modern Global Reset (portfolio-friendly) ============ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+/* 1) Box sizing + margin reset */
+*, *::before, *::after {
   box-sizing: border-box;
-  padding: 0;
+}
+* {
   margin: 0;
 }
 
+/* 2) Root defaults */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+    scroll-behavior: auto; /*to not fight the Lenis smooth scroll */
+  color-scheme: light dark; /* safe if you support dark mode later */
+}
+
+/* 3) Body baseline */
+html, body {
+  height: 100%;
+}
+body {
+
+  margin: 0 !important;     /* kills the UA 8px margin */
+  padding: 0 !important; 
+  min-height: 100svh; /* mobile-safe full height */
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: var(--space-grotesk), sans-serif;
+  color: #fff;
+  background: #111;
+}
+
+/* 4) Media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+img, picture, video, canvas {
+  height: auto;
+}
+svg {
+  overflow: visible;
+}
+
+/* 5) Typography resets */
+h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+h1{
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+strong, b {
+  font-weight: bolder;
+}
+
+/* 6) Lists */
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* 7) Links */
 a {
   color: inherit;
   text-decoration: none;
 }
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* 8) Forms */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+textarea {
+  resize: vertical;
+}
+
+/* 9) Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 10) Misc */
+:where(#root, #__next) {
+  isolation: isolate; /* avoid z-index bleed from portals */
+}
+
+
+section{
+  min-height: 100dvh;
+  width:100vw
+}
+
+/* 11) Respect reduced motion users */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
