@@ -28,7 +28,7 @@ export default function Roster() {
     >
       <div className={styles.gridContainer}>
         {roster.map((artist, i) => (
-          <a
+          <button
             key={i}
             className={styles.gridItem}
             onClick={() => handleOpenModal(artist.artist)}
@@ -54,7 +54,7 @@ export default function Roster() {
               {/* focus ring for keyboard nav */}
               <span className={styles.focusRing} aria-hidden />
             </figure>
-          </a>
+          </button>
         ))}
       </div>
       <Modal

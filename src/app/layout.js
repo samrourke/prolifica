@@ -1,5 +1,5 @@
 import SmoothScroll from "../../components/SmoothScroll/SmoothScroll";
-import Head from "next/head";
+import Head from "./head";
 import Navbar from "../../components/Nav/Nav";
 import "./globals.css";
 
@@ -14,9 +14,8 @@ const space_grotesk = Space_Grotesk({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={space_grotesk.variable}>
-      <Head />
+      <Head></Head>
       <body>
-        <Navbar />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
