@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./Nav.module.css";
+import Image from "next/image";
 
 export default function Navbar({ screenSize }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,7 +90,9 @@ export default function Navbar({ screenSize }) {
       <div aria-hidden="true"></div>
       <div className={styles.logoWrapper}>
         <Link href="/#home">
-          <img
+          <Image
+            height={1094}
+            width={3000}
             src="/Prolifica/logo-sm.webp"
             alt="prolifica logo"
             className={styles.logo}
