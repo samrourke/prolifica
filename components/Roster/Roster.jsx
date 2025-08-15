@@ -31,12 +31,9 @@ export default function Roster() {
           <button
             key={i}
             className={styles.gridItem}
-            aria-label={artist.artist}
+            onClick={() => handleOpenModal(artist.artist)}
           >
-            <figure
-              className={styles.card}
-              onClick={() => handleOpenModal(artist.artist)}
-            >
+            <figure className={styles.card}>
               <div className={styles.imageWrap}>
                 <img
                   src={artist.image}
@@ -46,14 +43,13 @@ export default function Roster() {
                 />
                 {/* soft gradient scrim */}
                 <div className={styles.scrim} aria-hidden />
+                <figcaption className={styles.caption}>
+                  <h2 className={styles.name}>{artist.artist}</h2>
+                </figcaption>
+
+                {/* focus ring for keyboard nav */}
+                <span className={styles.focusRing} aria-hidden />
               </div>
-
-              <figcaption className={styles.caption}>
-                <h2 className={styles.name}>{artist.artist}</h2>
-              </figcaption>
-
-              {/* focus ring for keyboard nav */}
-              <span className={styles.focusRing} aria-hidden />
             </figure>
           </button>
         ))}
