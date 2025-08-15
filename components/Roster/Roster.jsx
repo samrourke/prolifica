@@ -38,7 +38,7 @@ export default function Roster() {
               <div className={styles.imageWrap}>
                 <img
                   src={artist.image}
-                  alt={artist.artist}
+                  alt={`image of ${artist.artist}`}
                   loading="lazy"
                   decoding="async"
                 />

@@ -23,10 +23,8 @@ export default function Navbar({ screenSize }) {
 
   //Handle navigate click, close menu on mobile and resume Lenis scroll
   function handleNavigate() {
-    if (screenSize <= 768) {
-      setIsOpen(false); // close menu on mobile
-      window.dispatchEvent(new Event("lenis:resume")); // resume Lenis
-    }
+    setIsOpen(false); // always close
+    window.dispatchEvent(new Event("lenis:resume"));
   }
 
   //useMemo to create options for IntersectionObserver that do not need to change
@@ -82,9 +80,9 @@ export default function Navbar({ screenSize }) {
     <nav
       className={styles.navbar}
       style={
-        isVisible === "contact"
-          ? { backgroundColor: "#fff", color: "#111" }
-          : null
+        isVisible === "contact" && !isOpen
+          ? { backgroundColor: "#fff", "--nav-fg": "#111" }
+          : undefined
       }
     >
       <div aria-hidden="true"></div>
@@ -106,21 +104,9 @@ export default function Navbar({ screenSize }) {
         onClick={handleToggle}
         aria-label="Toggle menu"
       >
-        <span
-          style={
-            isVisible === "contact" && !isOpen ? { filter: "invert(1)" } : null
-          }
-        ></span>
-        <span
-          style={
-            isVisible === "contact" && !isOpen ? { filter: "invert(1)" } : null
-          }
-        ></span>
-        <span
-          style={
-            isVisible === "contact" && !isOpen ? { filter: "invert(1)" } : null
-          }
-        ></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       <ul className={`${styles.navList} ${isOpen ? styles.active : ""}`}>

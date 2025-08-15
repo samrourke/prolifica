@@ -1,7 +1,6 @@
 .navbar {
   padding: 1rem 2rem;
-  background-color: #111;
-  color:#fff;
+
   position: fixed;
   inset: 0 0 auto 0; /* top:0; left/right:0 */
   display: grid;               /* <-- use grid */
@@ -9,12 +8,14 @@
   align-items: center;
   z-index: 2;
   transition: background-color 1s ease;
+    --nav-fg: #fff;         /* default bar/link color */
+  background: #111;
+  color: var(--nav-fg);   /* links + bars inherit this */
 }
 
 
 .logoWrapper{
   align-self: center;
-
   width:fit-content
 }
 
@@ -22,7 +23,6 @@
   width:150px;
   height: auto;
   transition: filter 1s ease;
-  
 }
 
 
@@ -41,10 +41,9 @@
 .toggleButton span {
   display: block;
   height: 3px;
-  background: #fff;
+  background: currentColor; /* instead of fixed #fff */
   border-radius: 2px;
   transition: all 0.3s ease;
- 
 }
 
 .toggleButton.open span:nth-child(1) {
@@ -61,7 +60,7 @@
 
 .toggleButton > span.open {
  color:#fff;
- filter:invert(0);
+
 }
 
 .navList {
@@ -76,13 +75,10 @@
   font-weight: bold;
   font-size: clamp(1.2rem, 2vw, 1.4rem);
   position: relative;
-}
-
-.navList li a {
-  position: relative;             /* for the ::after positioning */
+             
   display: inline-block;          /* helps with width & transforms */
   color: inherit;                 /* take color from nav state */
-  text-decoration: none;
+ 
 }
 
 /* base underline, hidden */
@@ -110,10 +106,12 @@
 
 
 @media (max-width: 768px) {
-  .navbar{
-    padding:1rem 1rem;
-     grid-template-columns: 0px 1fr 10px; /* [burger] [center logo] [spacer] */
+   .navbar{
+    /* make the right track auto-size to the button */
+    grid-template-columns: 0px 1fr auto;
+    padding: 1rem 1rem;
   }
+
 
   .logo{
   width:120px;
@@ -121,6 +119,21 @@
   transition: filter 1s ease;
   
 }
+
+  .toggleButton {
+    display: flex;
+    justify-self: end;
+    width: 32px;  /* explicit */
+    height: 22px; /* explicit */
+    /* optional: ensure it never clips on tiny viewports */
+    margin-right: 4px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .toggleButton span {
+    width: 100%;   /* <-- make bars fill the button width */
+    height: 3px;
+  }
 
 
     .navbar ul{
@@ -134,6 +147,14 @@
   .toggleButton {
     display: flex;
   }
+
+  .toggleButton.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 8px);
+}
+.toggleButton.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -8px);
+}
+
 
     /* Hide desktop inline list */
   .navList { display: none; }

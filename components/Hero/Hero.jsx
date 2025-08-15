@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import gsap from "gsap";
 import styles from "./Hero.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,6 +21,7 @@ export default function ProlificaHero({
     "/Prolifica/yves-jarvis.jpg",
   ],
   logoSrc = "/logo.png",
+  screenSize,
 }) {
   const [index, setIndex] = useState(0); // not random here
   const indexRef = useRef(0); // live pointer for handlers
@@ -164,28 +165,46 @@ export default function ProlificaHero({
     return () => window.removeEventListener("mousemove", onMove);
   }, []);
 
-  useEffect(() => {
-    // respect reduced motion
+  useLayoutEffect(() => {
+    // Respect reduced motion ASAP
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    // parallax: move slide image up and slightly shrink as you scroll past the hero
-    const tween = gsap.to(slidesRef.current, {
-      y: 420,
-      scale: 0.98,
-      ease: "none",
-      scrollTrigger: {
-        trigger: stageRef.current, // the hero section
-        start: "top top",
-        end: "bottom top", // over the hero’s height
-        scrub: 0.6, // smooth follow
-      },
+    const ctx = gsap.context(() => {
+      // Match on capability, not just width
+      ScrollTrigger.matchMedia({
+        // Desktop/laptop: mouse/trackpad users with hover + fine pointer
+        "(hover: hover) and (pointer: fine) and (min-width: 1024px)": () => {
+          const tween = gsap.to(slidesRef.current, {
+            y: 420,
+            scale: 0.98,
+            ease: "none",
+            scrollTrigger: {
+              trigger: stageRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: 0.6,
+            },
+          });
+        },
+
+        // Everything else (tablets, phones, touch laptops, narrow windows)
+        all: () => {
+          // Optional: a gentle fallback so mobile/tablet still feels alive
+          // e.g., a tiny fade/scale on enter, not bound to scroll
+          // gsap.fromTo(slidesRef.current, {opacity: 0.95, scale: 1.01}, {opacity: 1, scale: 1, duration: 0.6, ease: "power1.out"});
+        },
+      });
     });
 
+    // Keep ScrollTrigger measurements correct when chrome/safari bars resize
+    const onResize = () => ScrollTrigger.refresh();
+    window.addEventListener("resize", onResize);
+
     return () => {
-      if (tween?.scrollTrigger) tween.scrollTrigger.kill();
-      tween?.kill();
+      window.removeEventListener("resize", onResize);
+      ctx.revert(); // kills all ScrollTriggers/tweens created in this context
     };
-  }, [introDone.current]); // run once after intro
+  }, [introDone]); // pass the boolean, not `introDone.current`
 
   return (
     <section className={styles.hero} id="home" ref={stageRef}>

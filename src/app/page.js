@@ -21,7 +21,7 @@ export default function Home() {
     <>
       {" "}
       <Navbar screenSize={width} />
-      <ProlificaHero />
+      <ProlificaHero screenSize={width} />
       <Roster />
       <Contact />
     </>
