@@ -1,12 +1,22 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./Nav.module.css";
 import Image from "next/image";
+import useResponsiveWidth from "../ResponsiveWidth/ResponsiveWidth";
+import { useRouter } from "next/navigation";
 
-export default function Navbar({ screenSize }) {
+export default function Navbar() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState("hero");
+
+  const width = useResponsiveWidth();
+
+  useEffect(() => {
+    if (width > 768) {
+      window.dispatchEvent(new Event("lenis:resume"));
+    }
+  }, [width]);
 
   //Toggle menu open/close and pause/resume Lenis scroll
   function handleToggle() {
@@ -22,9 +32,13 @@ export default function Navbar({ screenSize }) {
   }
 
   //Handle navigate click, close menu on mobile and resume Lenis scroll
-  function handleNavigate() {
-    setIsOpen(false); // always close
+  function handleNavigate(id) {
     window.dispatchEvent(new Event("lenis:resume"));
+    const element = document.getElementById(id);
+    if (element) {
+      lenis.scrollTo(element); // Use Lenis's scrollTo method [1]
+    }
+    setIsOpen(false);
   }
 
   //useMemo to create options for IntersectionObserver that do not need to change
@@ -42,10 +56,10 @@ export default function Navbar({ screenSize }) {
   //close mobile menu if screen size changes to desktop width.
 
   useEffect(() => {
-    if (screenSize > 768) {
+    if (width > 768) {
       setIsOpen(false);
     }
-  }, [screenSize]);
+  }, [width]);
 
   //Intersection observer to track visible section and underline nav item
 
@@ -87,7 +101,11 @@ export default function Navbar({ screenSize }) {
     >
       <div aria-hidden="true"></div>
       <div className={styles.logoWrapper}>
-        <Link href="/#home">
+        <button
+          onClick={() => {
+            handleNavigate("home");
+          }}
+        >
           <Image
             height={1094}
             width={3000}
@@ -96,7 +114,7 @@ export default function Navbar({ screenSize }) {
             className={styles.logo}
             style={isVisible === "contact" ? { filter: "invert(1)" } : null}
           />
-        </Link>
+        </button>
       </div>
 
       <button
@@ -111,24 +129,31 @@ export default function Navbar({ screenSize }) {
 
       <ul className={`${styles.navList} ${isOpen ? styles.active : ""}`}>
         <li className={styles.logoNav}>
-          <Link
-            href="/#roster"
-            onClick={handleNavigate}
+          <button
+            onClick={() => {
+              handleNavigate("roster");
+            }}
             className={isVisible === "roster" ? styles.active : ""}
           >
             Roster
-          </Link>
+          </button>
         </li>
         <li>
-          <Link
-            href="/#contact"
-            onClick={handleNavigate}
+          <button
+            onClick={() => {
+              handleNavigate("contact");
+            }}
             className={isVisible === "contact" ? styles.active : ""}
           >
             Contact
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>
   );
 }
+
+/*
+Had to wrap the nav links in <button> tags to get around the iOS double click
+problem. 
+*/

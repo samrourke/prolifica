@@ -5,6 +5,7 @@ import gsap from "gsap";
 import styles from "./Hero.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import { useRouter } from "next/navigation";
 
 export default function ProlificaHero({
   images = [
@@ -21,10 +22,18 @@ export default function ProlificaHero({
     "/Prolifica/yves-jarvis.jpg",
   ],
   logoSrc = "/logo.png",
-  screenSize,
 }) {
+  const router = useRouter();
   const [index, setIndex] = useState(0); // not random here
   const indexRef = useRef(0); // live pointer for handlers
+
+  //Handle navigate click, close menu on mobile and resume Lenis scroll
+  function handleNavigate(id) {
+    const element = document.getElementById(id);
+    if (element) {
+      lenis.scrollTo(element); // Use Lenis's scrollTo method [1]
+    }
+  }
 
   // Refs for elements
   const slidesRef = useRef([]);
@@ -165,6 +174,8 @@ export default function ProlificaHero({
     return () => window.removeEventListener("mousemove", onMove);
   }, []);
 
+  //Parallax effect with escape for non desktop to avoid the glitchy parallax on smaller devices
+  // (hover:hover) and (pointer:fine) isolates desktop/trackpad devices
   useLayoutEffect(() => {
     // Respect reduced motion ASAP
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -238,12 +249,22 @@ export default function ProlificaHero({
 
       {/* Nav */}
       <div ref={navRef} className={styles.nav}>
-        <h1>
-          <a href="#roster">Roster</a>
-        </h1>
-        <h1>
-          <a href="#contact">Contact</a>
-        </h1>
+        <button
+          onClick={() => {
+            handleNavigate("roster");
+          }}
+        >
+          <h1>Roster</h1>
+        </button>
+
+        <button
+          onClick={() => {
+            handleNavigate("contact");
+          }}
+        >
+          {" "}
+          <h1>Contact</h1>
+        </button>
       </div>
     </section>
   );

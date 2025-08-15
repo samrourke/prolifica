@@ -31,10 +31,12 @@ export default function Roster() {
           <button
             key={i}
             className={styles.gridItem}
-            onClick={() => handleOpenModal(artist.artist)}
             aria-label={artist.artist}
           >
-            <figure className={styles.card}>
+            <figure
+              className={styles.card}
+              onClick={() => handleOpenModal(artist.artist)}
+            >
               <div className={styles.imageWrap}>
                 <img
                   src={artist.image}
@@ -48,7 +50,6 @@ export default function Roster() {
 
               <figcaption className={styles.caption}>
                 <h2 className={styles.name}>{artist.artist}</h2>
-                {artist.meta && <p className={styles.meta}>{artist.meta}</p>}
               </figcaption>
 
               {/* focus ring for keyboard nav */}

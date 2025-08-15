@@ -1,6 +1,5 @@
 .navbar {
   padding: 1rem 2rem;
-
   position: fixed;
   inset: 0 0 auto 0; /* top:0; left/right:0 */
   display: grid;               /* <-- use grid */
@@ -70,19 +69,18 @@
   margin: 0; padding: 0;
 }
 
-.navList li a {
+.navList li button {
   text-decoration: none;
   font-weight: bold;
   font-size: clamp(1.2rem, 2vw, 1.4rem);
-  position: relative;
-             
+  position: relative;       
   display: inline-block;          /* helps with width & transforms */
   color: inherit;                 /* take color from nav state */
  
 }
 
 /* base underline, hidden */
-.navList li a::after{
+.navList li button::after{
   content: "";
   position: absolute;
   left: 0;
@@ -97,11 +95,10 @@
 }
 
 /* active (or hover) state */
-.navList li a.active::after,
-.navList li a:hover::after{
+.navList li button.active::after,
+.navList li button:hover::after{
   transform: scaleX(1);
 }
-
 
 
 
@@ -173,7 +170,7 @@
     gap:5rem;         /* below the burger, above content */
   }
 
-  .navList.active li a {
+  .navList.active li button {
     font-weight: bold;
     font-size: clamp(2rem, 6vw, 3rem);
     text-decoration: none;

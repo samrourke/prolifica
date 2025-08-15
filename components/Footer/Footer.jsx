@@ -1,7 +1,21 @@
+"use client";
 import styles from "./Footer.module.css";
-import Link from "next/link";
+import Modal from "../Modal/Modal";
+import TermsAndConditions from "../TermsModal/Terms";
+import { useState } from "react";
 
 export default function Footer() {
+  const [isOpen, setIsOpen] = useState(false);
+  function handleOpenModal() {
+    setIsOpen(true);
+    window.dispatchEvent(new Event("lenis:pause"));
+    document.body.style.overflow = "hidden";
+  }
+  function handleCloseModal() {
+    setIsOpen(false);
+    window.dispatchEvent(new Event("lenis:resume")); // ✅ resume Lenis
+    document.body.style.overflow = "";
+  }
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
@@ -18,8 +32,11 @@ export default function Footer() {
           </a>
         </h2>
 
-        <Link href="/terms-of-service">Terms and Conditions</Link>
+        <button onClick={handleOpenModal}>Terms and Conditions</button>
       </div>
+      <Modal isOpen={isOpen} onClose={handleCloseModal}>
+        <TermsAndConditions />
+      </Modal>
     </footer>
   );
 }
