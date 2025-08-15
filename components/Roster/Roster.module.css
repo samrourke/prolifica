@@ -41,7 +41,7 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  background-color: red;
+ 
 
 }
 
@@ -67,13 +67,12 @@
   transition: transform 1.2s cubic-bezier(.2,.65,.2,1), filter .8s ease;
   will-change: transform;
   pointer-events: none;
-  opacity: 0.5;
 }
 .scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.05));
-  opacity: .0;
+  background: linear-gradient(to top, rgba(0,0,0,.4), rgba(0,0,0,.05));
+  opacity: 0.1;
   transition: opacity .6s ease;
   pointer-events: none;
 }
