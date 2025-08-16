@@ -182,7 +182,7 @@ export default function ProlificaHero({
 
     const ctx = gsap.context(() => {
       // Match on capability, not just width
-      ScrollTrigger.matchMedia({
+      gsap.matchMedia({
         // Desktop/laptop: mouse/trackpad users with hover + fine pointer
         "(hover: hover) and (pointer: fine) and (min-width: 1024px)": () => {
           const tween = gsap.to(slidesRef.current, {
@@ -207,9 +207,11 @@ export default function ProlificaHero({
       });
     });
 
-    // Keep ScrollTrigger measurements correct when chrome/safari bars resize
-    const onResize = () => ScrollTrigger.refresh();
-    window.addEventListener("resize", onResize);
+    // Keep ScrollTrigger measurements correct when chrome/safari bars resize, disabled for smoother
+    //experience, repainting display too much on mobile.
+
+    // const onResize = () => ScrollTrigger.refresh();
+    // window.addEventListener("resize", onResize);
 
     return () => {
       window.removeEventListener("resize", onResize);

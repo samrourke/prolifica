@@ -6,6 +6,10 @@
   background: black;
   color: white;
   z-index: 3;
+   @supports (height: 100dvh) {
+    min-height: 100dvh;
+  }
+  overscroll-behavior: none;
 }
 
 .slides {

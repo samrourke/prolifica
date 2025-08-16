@@ -12,7 +12,7 @@ export default function ArtistModal({ selectedArtist }) {
     Instagram: "/Socials/insta-cropped.svg",
     Spotify: "/Socials/spotify-cropped.svg",
     TikTok: "/Socials/tiktok-cropped.svg",
-    Website: "/Socials/World.png",
+    Website: "/Socials/World-edit.png",
     YouTube: "/Socials/youtube-cropped.svg",
     X: "/Socials/x-cropped.svg",
     Apple: "/Socials/apple.svg",
