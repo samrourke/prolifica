@@ -2,6 +2,7 @@ const roster = [
   {
     artist: "3lijah",
     image: "/Prolifica/3lijah.png",
+    modalImage: "",
     socials: [
       {
         platform: "Instagram",
@@ -15,7 +16,8 @@ const roster = [
   },
   {
     artist: "Candi Staton",
-    image: "/Prolifica/candi-staton.webp",
+    image: "/mobile/candiStaton.webp",
+    modalImage: "/compressed/candiStaton.webp",
     socials: [
       { platform: "Instagram", link: "https://www.instagram.com/candistaton/" },
       {
@@ -38,7 +40,8 @@ const roster = [
   },
   {
     artist: "Circa Waves",
-    image: "/Prolifica/circa-waves.jpg",
+    image: "/mobile/circaWaves.webp",
+    modalImage: "/compressed/circaWaves.webp",
     socials: [
       { platform: "Instagram", link: "https://www.instagram.com/circawaves/" },
       {
@@ -63,7 +66,8 @@ const roster = [
   },
   {
     artist: "Courting",
-    image: "/Prolifica/courting.png",
+    image: "/mobile/courting.webp",
+    modalImage: "/compressed/courting.webp",
     socials: [
       {
         platform: "Instagram",
@@ -91,7 +95,8 @@ const roster = [
   },
   {
     artist: "Disgusting Sisters",
-    image: "/Prolifica/disgusting-sisters.jpg",
+    image: "/mobile/disgustingSisters.webp",
+    modalImage: "/compressed/disgustingSisters.webp",
     socials: [
       {
         platform: "Instagram",
@@ -109,7 +114,8 @@ const roster = [
   },
   {
     artist: "Friendly Fires",
-    image: "/Prolifica/friendly-fires.jpg",
+    image: "/mobile/friendlyFires.webp",
+    modalImage: "/compressed/friendlyFires.webp",
     socials: [
       {
         platform: "Instagram",
@@ -128,7 +134,8 @@ const roster = [
   },
   {
     artist: "Kieran Shudall",
-    image: "/Prolifica/kieran-shudall.png",
+    image: "/mobile/kieranShudall.webp",
+    modalImage: "",
     socials: [
       {
         platform: "Spotify",
@@ -138,7 +145,8 @@ const roster = [
   },
   {
     artist: "Maximo Park",
-    image: "/Prolifica/maximo-park.jpg",
+    image: "/mobile/maximoPark.webp",
+    modalImage: "/compressed/maximoPark.webp",
     socials: [
       {
         platform: "Instagram",
@@ -160,7 +168,9 @@ const roster = [
   },
   {
     artist: "The North",
-    image: "/Prolifica/the-north.jpg",
+    image: "/mobile/theNorth.webp",
+    modalImage: "/mobile/theNorth.webp",
+
     socials: [
       {
         platform: "Instagram",
@@ -175,7 +185,8 @@ const roster = [
   },
   {
     artist: "Two Door Cinema Club",
-    image: "/Prolifica/two-door.jpg",
+    image: "/mobile/twoDoor.webp",
+    modalImage: "/compressed/twoDoor.webp",
     socials: [
       {
         platform: "Instagram",
@@ -207,7 +218,8 @@ const roster = [
   },
   {
     artist: "Yves Jarvis",
-    image: "/Prolifica/yves-jarvis.jpg",
+    image: "/mobile/yvesJarvis.webp",
+    modalImage: "/compressed/yvesJarvis.webp",
     socials: [
       { platform: "Instagram", link: "https://www.instagram.com/yvesjarvis/" },
       { platform: "X", link: "https://x.com/yvesjarvis" },

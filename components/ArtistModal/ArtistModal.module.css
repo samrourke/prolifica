@@ -9,6 +9,7 @@
   background: #000;               /* fallback while image loads */
 }
 
+
 /* Full-bleed background image */
 .bg {
   position: absolute;
@@ -20,6 +21,8 @@
   will-change: transform, opacity;
   transition: transform .7s cubic-bezier(.2,.65,.2,1), opacity .3s ease;
 }
+
+
 .overlayCard:hover .bg { transform: scale(1.06); }
 
 /* Subtle global vignette (top+edges) */

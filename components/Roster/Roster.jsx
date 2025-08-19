@@ -20,6 +20,7 @@ export default function Roster() {
     setIsOpen(false);
     window.dispatchEvent(new Event("lenis:resume")); // ✅ resume Lenis
   }
+
   return (
     <section
       id="roster"
@@ -59,7 +60,7 @@ export default function Roster() {
         onClose={handleCloseModal}
         titleId="roster-modal-title"
       >
-        <ArtistModal selectedArtist={selectedArtist} />
+        <ArtistModal selectedArtist={selectedArtist} isOpen={isOpen} />
       </Modal>
     </section>
   );

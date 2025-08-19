@@ -5,6 +5,8 @@
   background: #111;
   color: #fff;
   padding: clamp(2rem, 6vw, 6rem) 1.5rem;
+  height:100svh;
+  
 }
 
 .contactText {

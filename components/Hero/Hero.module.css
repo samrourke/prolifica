@@ -14,20 +14,26 @@
 
 .slides {
   position: absolute;
-  inset: 0;
+  inset: 0; /* same as top, left, bottom, top  = 0*/
   z-index: 3; /* behind bars + logo */
 }
 
 .slide {
   position: absolute;
   inset: 0;
+
 }
-.slide img {
+.slide picture {
   width: 100%;
+  height: 100%;
+
+
+}
+.slide picture img{
+    width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .scrim {
   position: absolute;
   inset: 0;

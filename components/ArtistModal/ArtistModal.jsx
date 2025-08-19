@@ -2,8 +2,16 @@
 
 import styles from "./ArtistModal.module.css";
 import data from "../../data";
+import gsap from "gsap";
+import { useRef, useLayoutEffect, useEffect } from "react";
 
-export default function ArtistModal({ selectedArtist }) {
+/**
+ * Props:
+ * - selectedArtist: string
+ * - isOpen: boolean           // parent controls open/close state
+ * - onExited?: () => void     // called AFTER exit animation completes
+ */
+export default function ArtistModal({ selectedArtist, isOpen }) {
   const artist = data.find((a) => a.artist === selectedArtist);
   if (!artist) return null;
 
@@ -19,21 +27,19 @@ export default function ArtistModal({ selectedArtist }) {
   };
 
   return (
-    <div className={styles.overlayCard} role="document">
+    <div className={styles.overlayCard} role="dialog" aria-modal="true">
       {/* Full-bleed image */}
       <img
         className={styles.bg}
-        src={artist.image}
+        src={artist.modalImage}
         alt={artist.artist}
         loading="lazy"
         decoding="async"
       />
 
-      {/* Scrims for readability */}
       <div className={styles.vignette} aria-hidden />
       <div className={styles.gradient} aria-hidden />
 
-      {/* Content overlaid */}
       <header className={styles.header}>
         <h1 className={styles.title}>{artist.artist}</h1>
       </header>
