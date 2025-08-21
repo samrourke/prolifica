@@ -69,7 +69,8 @@ export default function ProlificaHero({
     slidesRef.current.forEach((el, i) => {
       gsap.set(el, {
         opacity: i === rnd ? 1 : 0,
-        filter: "blur(1px) brightness(0.8)",
+        filter:
+          i === rnd ? "blur(1px) brightness(0.8)" : "blur(0px) brightness(1)",
       });
     });
 
@@ -78,18 +79,14 @@ export default function ProlificaHero({
     gsap.set(navRef.current, { opacity: 0 });
 
     const tl = gsap.timeline({ defaults: { ease: "circ.out" } });
-    tl.to(slidesRef.current[rnd], {
-      filter: "blur(0px) brightness(1)",
-      duration: 0.9,
-    })
-      .to(
-        [topBarRef.current, bottomBarRef.current],
-        {
-          height: "15svh",
-          duration: 0.8,
-        },
-        "<"
-      )
+    tl.to(
+      [topBarRef.current, bottomBarRef.current],
+      {
+        height: "15svh",
+        duration: 0.8,
+      },
+      "<"
+    )
 
       .to(
         [logoRef.current, navRef.current],
