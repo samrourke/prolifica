@@ -84,6 +84,7 @@ export default function ProlificaHero({
       {
         height: "15svh",
         duration: 0.8,
+        delay: 0.3,
       },
       "<"
     )

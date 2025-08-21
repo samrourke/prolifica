@@ -9,6 +9,25 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Contact() {
   const contactRef = useRef(null);
 
+  const socials = [
+    {
+      platform: "Instagram",
+      link: "https://www.instagram.com/prolificamanagement/",
+      image: "/Socials/insta-cropped.svg",
+    },
+    {
+      platform: "X",
+      link: "https://x.com/prolifica/",
+      image: "/Socials/x-cropped.svg",
+    },
+
+    {
+      platform: "Facebook",
+      link: "https://www.facebook.com/prolificamanagement",
+      image: "/Socials/facebook-cropped.svg",
+    },
+  ];
+
   useEffect(() => {
     // Respect reduced motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
