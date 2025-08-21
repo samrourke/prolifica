@@ -3,7 +3,7 @@ const roster = [
     artist: "3lijah",
     image: "/mobile/3lijah.webp",
     modalImage: "/compressed/3lijah.webp",
-    modalImage: "",
+
     socials: [
       {
         platform: "Instagram",
