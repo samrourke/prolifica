@@ -136,7 +136,7 @@ const roster = [
   {
     artist: "Kieran Shudall",
     image: "/mobile/kieranShudall.webp",
-    modalImage: "",
+    modalImage: "/compressed/kieranShudall.webp",
     socials: [
       {
         platform: "Spotify",
