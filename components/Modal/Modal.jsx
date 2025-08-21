@@ -43,15 +43,13 @@ export default function Modal({
     const tl = gsap.timeline({ paused: true });
     tl.to(backdrop, {
       opacity: 1,
-      duration: 0.3,
+      duration: 0.2,
       ease: "power2.out",
-    })
-      .to(
-        top,
-        { scaleY: 0, duration: 0.6, delay: 0.5, ease: "circ.inOut" },
-        "-=0.2"
-      )
-      .to(bottom, { scaleY: 0, duration: 0.6, ease: "circ.inOut" }, "<");
+    }).to(
+      [top, bottom],
+      { scaleY: 0, duration: 0.6, delay: 0.2, ease: "circ.inOut" },
+      "-=0.1"
+    );
 
     // "<" means to start at same time as previous .to()
 

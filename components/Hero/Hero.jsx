@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ProlificaHero({
   images = [
+    "/compressed/3lijah.webp",
     "/compressed/candiStaton.webp",
     "/compressed/circaWaves.webp",
     "/compressed/courting.webp",
@@ -68,7 +69,7 @@ export default function ProlificaHero({
     slidesRef.current.forEach((el, i) => {
       gsap.set(el, {
         opacity: i === rnd ? 1 : 0,
-        filter: "blur(2px) brightness(0.8)",
+        filter: "blur(1px) brightness(0.8)",
       });
     });
 
@@ -77,24 +78,23 @@ export default function ProlificaHero({
     gsap.set(navRef.current, { opacity: 0 });
 
     const tl = gsap.timeline({ defaults: { ease: "circ.out" } });
-    tl.to([topBarRef.current, bottomBarRef.current], {
-      height: "15svh",
-      duration: 1,
-      stagger: { each: 0.02 },
+    tl.to(slidesRef.current[rnd], {
+      filter: "blur(0px) brightness(1)",
+      duration: 0.9,
     })
+      .to(
+        [topBarRef.current, bottomBarRef.current],
+        {
+          height: "15svh",
+          duration: 0.8,
+        },
+        "<"
+      )
 
       .to(
-        slidesRef.current[rnd],
-        {
-          filter: "blur(0px) brightness(1)",
-          duration: 0.9,
-        },
-        "-=0.9"
-      )
-      .to(
         [logoRef.current, navRef.current],
-        { opacity: 1, duration: 1 },
-        "+=0.5"
+        { opacity: 1, duration: 0.6, scale: 1 },
+        "-=0.5"
       )
       .add(() => {
         introDone.current = true;

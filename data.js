@@ -1,7 +1,8 @@
 const roster = [
   {
     artist: "3lijah",
-    image: "/Prolifica/3lijah.png",
+    image: "/mobile/3lijah.webp",
+    modalImage: "/compressed/3lijah.webp",
     modalImage: "",
     socials: [
       {
