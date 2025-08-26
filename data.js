@@ -1,44 +1,25 @@
 const roster = [
   {
-    artist: "3lijah",
-    image: "/mobile/3lijah.webp",
-    modalImage: "/compressed/3lijah.webp",
-
+    artist: "Friendly Fires",
+    image: "/mobile/friendlyFires.webp",
+    modalImage: "/compressed/friendlyFires.webp",
     socials: [
       {
         platform: "Instagram",
-        link: "https://www.instagram.com/3lijah3lijah3lijah/am.com/3lijah/",
+        link: "https://www.instagram.com/friendlyfires/?hl=en",
       },
+      { platform: "X", link: "https://x.com/friendlyfires?lang=en" },
       {
-        platform: "TikTok",
-        link: "https://www.tiktok.com/@3lijah3lijah3lijah",
+        platform: "YouTube",
+        link: "https://www.youtube.com/channel/UC-cL104flI6BOmdA4PKodzw",
       },
-    ],
-  },
-  {
-    artist: "Candi Staton",
-    image: "/mobile/candiStaton.webp",
-    modalImage: "/compressed/candiStaton.webp",
-    socials: [
-      { platform: "Instagram", link: "https://www.instagram.com/candistaton/" },
       {
         platform: "Spotify",
-        link: "https://open.spotify.com/artist/3S34Unhn5yRcaH5K9aU5Et?si=msue1rJQR0mOnyM3VbJTbQ&nd=1&dlsi=ae0b95ed29cb4942",
-      },
-      {
-        platform: "Facebook",
-        link: "https://www.facebook.com/TheRealCandiStaton/",
-      },
-      {
-        platform: "TikTok",
-        link: "https://www.tiktok.com/@mscandistaton",
-      },
-      {
-        platform: "Apple",
-        link: "https://music.apple.com/us/artist/candi-staton/795789",
+        link: "https://open.spotify.com/artist/3mZqziCJj4pq3P2VBpmK6p?si=wMfP6CceSpy8DC4He6u-6g&nd=1&dlsi=e634f96e21d54f4a",
       },
     ],
   },
+
   {
     artist: "Circa Waves",
     image: "/mobile/circaWaves.webp",
@@ -66,34 +47,76 @@ const roster = [
     ],
   },
   {
-    artist: "Courting",
-    image: "/mobile/courting.webp",
-    modalImage: "/compressed/courting.webp",
+    artist: "Candi Staton",
+    image: "/mobile/candiStaton.webp",
+    modalImage: "/compressed/candiStaton.webp",
     socials: [
-      {
-        platform: "Instagram",
-        link: "https://www.instagram.com/courtingband/",
-      },
+      { platform: "Instagram", link: "https://www.instagram.com/candistaton/" },
       {
         platform: "Spotify",
-        link: "https://open.spotify.com/artist/3oLTaC5QBOH96VbxMAafpZ?si=IRCTR-CoRjmWjYfEsBuPBg&nd=1&dlsi=f28b710bbbcf4b98",
+        link: "https://open.spotify.com/artist/3S34Unhn5yRcaH5K9aU5Et?si=msue1rJQR0mOnyM3VbJTbQ&nd=1&dlsi=ae0b95ed29cb4942",
       },
-
       {
         platform: "Facebook",
-        link: "https://www.facebook.com/Courtingband/",
+        link: "https://www.facebook.com/TheRealCandiStaton/",
       },
       {
         platform: "TikTok",
-        link: "https://www.tiktok.com/@courtingband?is_from_webapp=1&sender_device=pc",
+        link: "https://www.tiktok.com/@mscandistaton",
       },
       {
         platform: "Apple",
-        link: "https://music.apple.com/gb/artist/courting/1437306821",
+        link: "https://music.apple.com/us/artist/candi-staton/795789",
       },
-      { platform: "Website", link: "https://courtingband.com/" },
     ],
   },
+
+  {
+    artist: "Two Door Cinema Club",
+    image: "/mobile/twoDoor.webp",
+    modalImage: "/compressed/twoDoor.webp",
+    socials: [
+      {
+        platform: "Instagram",
+        link: "https://www.instagram.com/twodoorcinemaclub/",
+      },
+      {
+        platform: "Facebook",
+        link: "https://www.facebook.com/twodoorcinemaclub/",
+      },
+
+      {
+        platform: "Spotify",
+        link: "https://open.spotify.com/artist/536BYVgOnRky0xjsPT96zl",
+      },
+      {
+        platform: "TikTok",
+        link: "https://www.tiktok.com/@tdcinemaclub",
+      },
+
+      {
+        platform: "Apple",
+        link: "https://music.apple.com/gb/artist/two-door-cinema-club/291005449",
+      },
+      {
+        platform: "Website",
+        link: "https://twodoorcinemaclub.com/",
+      },
+    ],
+  },
+
+  {
+    artist: "Kieran Shudall",
+    image: "/mobile/kieranShudall.webp",
+    modalImage: "/compressed/kieranShudall.webp",
+    socials: [
+      {
+        platform: "Spotify",
+        link: "https://open.spotify.com/playlist/37i9dQZF1EFJXBrPODDQYy?si=QWTveF7mS16amLuxt6D0yw",
+      },
+    ],
+  },
+
   {
     artist: "Disgusting Sisters",
     image: "/mobile/disgustingSisters.webp",
@@ -114,36 +137,22 @@ const roster = [
     ],
   },
   {
-    artist: "Friendly Fires",
-    image: "/mobile/friendlyFires.webp",
-    modalImage: "/compressed/friendlyFires.webp",
+    artist: "3lijah",
+    image: "/mobile/3lijah.webp",
+    modalImage: "/compressed/3lijah.webp",
+
     socials: [
       {
         platform: "Instagram",
-        link: "https://www.instagram.com/friendlyfires/?hl=en",
-      },
-      { platform: "X", link: "https://x.com/friendlyfires?lang=en" },
-      {
-        platform: "YouTube",
-        link: "https://www.youtube.com/channel/UC-cL104flI6BOmdA4PKodzw",
+        link: "https://www.instagram.com/3lijah3lijah3lijah/am.com/3lijah/",
       },
       {
-        platform: "Spotify",
-        link: "https://open.spotify.com/artist/3mZqziCJj4pq3P2VBpmK6p?si=wMfP6CceSpy8DC4He6u-6g&nd=1&dlsi=e634f96e21d54f4a",
+        platform: "TikTok",
+        link: "https://www.tiktok.com/@3lijah3lijah3lijah",
       },
     ],
   },
-  {
-    artist: "Kieran Shudall",
-    image: "/mobile/kieranShudall.webp",
-    modalImage: "/compressed/kieranShudall.webp",
-    socials: [
-      {
-        platform: "Spotify",
-        link: "https://open.spotify.com/playlist/37i9dQZF1EFJXBrPODDQYy?si=QWTveF7mS16amLuxt6D0yw",
-      },
-    ],
-  },
+
   {
     artist: "Maximo Park",
     image: "/mobile/maximoPark.webp",
@@ -185,38 +194,35 @@ const roster = [
     ],
   },
   {
-    artist: "Two Door Cinema Club",
-    image: "/mobile/twoDoor.webp",
-    modalImage: "/compressed/twoDoor.webp",
+    artist: "Courting",
+    image: "/mobile/courting.webp",
+    modalImage: "/compressed/courting.webp",
     socials: [
       {
         platform: "Instagram",
-        link: "https://www.instagram.com/twodoorcinemaclub/",
+        link: "https://www.instagram.com/courtingband/",
       },
       {
-        platform: "Facebook",
-        link: "https://www.facebook.com/twodoorcinemaclub/",
+        platform: "Spotify",
+        link: "https://open.spotify.com/artist/3oLTaC5QBOH96VbxMAafpZ?si=IRCTR-CoRjmWjYfEsBuPBg&nd=1&dlsi=f28b710bbbcf4b98",
       },
 
       {
-        platform: "Spotify",
-        link: "https://open.spotify.com/artist/536BYVgOnRky0xjsPT96zl",
+        platform: "Facebook",
+        link: "https://www.facebook.com/Courtingband/",
       },
       {
         platform: "TikTok",
-        link: "https://www.tiktok.com/@tdcinemaclub",
+        link: "https://www.tiktok.com/@courtingband?is_from_webapp=1&sender_device=pc",
       },
-
       {
         platform: "Apple",
-        link: "https://music.apple.com/gb/artist/two-door-cinema-club/291005449",
+        link: "https://music.apple.com/gb/artist/courting/1437306821",
       },
-      {
-        platform: "Website",
-        link: "https://twodoorcinemaclub.com/",
-      },
+      { platform: "Website", link: "https://courtingband.com/" },
     ],
   },
+
   {
     artist: "Yves Jarvis",
     image: "/mobile/yvesJarvis.webp",
