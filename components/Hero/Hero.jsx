@@ -89,11 +89,11 @@ export default function ProlificaHero({
       "<"
     )
 
-      .to(
-        [logoRef.current, navRef.current],
-        { opacity: 1, duration: 0.6, scale: 1 },
-        "-=0.5"
-      )
+      .to([logoRef.current, navRef.current], {
+        opacity: 1,
+        duration: 0.6,
+        scale: 1,
+      })
       .add(() => {
         introDone.current = true;
       });
@@ -253,7 +253,14 @@ export default function ProlificaHero({
 
       {/* Logo */}
       <div ref={logoRef} className={styles.logoWrapper}>
-        <img src={logoSrc} alt="Prolifica" className={styles.logo} />
+        <img
+          src={logoSrc}
+          alt="Prolifica"
+          className={styles.logo}
+          onClick={() => {
+            handleNavigate("roster");
+          }}
+        />
       </div>
 
       {/* Nav */}

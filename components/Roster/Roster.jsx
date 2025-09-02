@@ -4,11 +4,24 @@ import styles from "./Roster.module.css";
 import roster from "../../data";
 import Modal from "../Modal/Modal";
 import ArtistModal from "../ArtistModal/ArtistModal";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import useResponsiveWidth from "../ResponsiveWidth/ResponsiveWidth";
 
 export default function Roster() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedArtist, setSelectedArtist] = useState(null);
+
+  //monitor viewport width to change roster order on single colum layout
+  const width = useResponsiveWidth();
+
+  //Definte isMobile as boolean at media breakpoint
+  const isMobile = width < 800;
+
+  // Order items depending on viewport, useMemo to avoid unnecessary recalculaions on re-renders
+  const ordered = useMemo(() => {
+    const key = isMobile ? "mobileKey" : "desktopKey";
+    return [...roster].sort((a, b) => (a[key] ?? 0) - (b[key] ?? 0));
+  }, [isMobile]);
 
   function handleOpenModal(artist) {
     setSelectedArtist(artist);
@@ -28,7 +41,7 @@ export default function Roster() {
       aria-labelledby="roster-heading"
     >
       <div className={styles.gridContainer}>
-        {roster.map((artist, i) => (
+        {ordered.map((artist, i) => (
           <button
             key={i}
             className={styles.gridItem}

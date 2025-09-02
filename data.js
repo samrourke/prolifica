@@ -1,6 +1,8 @@
 const roster = [
   {
     artist: "Friendly Fires",
+    mobileKey: "1",
+    desktopKey: "1",
     image: "/mobile/friendlyFires.webp",
     modalImage: "/compressed/friendlyFires.webp",
     socials: [
@@ -22,6 +24,8 @@ const roster = [
 
   {
     artist: "Circa Waves",
+    mobileKey: "3",
+    desktopKey: "2",
     image: "/mobile/circaWaves.webp",
     modalImage: "/compressed/circaWaves.webp",
     socials: [
@@ -48,6 +52,8 @@ const roster = [
   },
   {
     artist: "Candi Staton",
+    mobileKey: "8",
+    desktopKey: "3",
     image: "/mobile/candiStaton.webp",
     modalImage: "/compressed/candiStaton.webp",
     socials: [
@@ -73,6 +79,8 @@ const roster = [
 
   {
     artist: "Two Door Cinema Club",
+    mobileKey: "2",
+    desktopKey: "4",
     image: "/mobile/twoDoor.webp",
     modalImage: "/compressed/twoDoor.webp",
     socials: [
@@ -107,6 +115,8 @@ const roster = [
 
   {
     artist: "Kieran Shudall",
+    mobileKey: "6",
+    desktopKey: "5",
     image: "/mobile/kieranShudall.webp",
     modalImage: "/compressed/kieranShudall.webp",
     socials: [
@@ -116,9 +126,10 @@ const roster = [
       },
     ],
   },
-
   {
     artist: "Disgusting Sisters",
+    mobileKey: "10",
+    desktopKey: "6",
     image: "/mobile/disgustingSisters.webp",
     modalImage: "/compressed/disgustingSisters.webp",
     socials: [
@@ -138,6 +149,8 @@ const roster = [
   },
   {
     artist: "3lijah",
+    mobileKey: "11",
+    desktopKey: "7",
     image: "/mobile/3lijah.webp",
     modalImage: "/compressed/3lijah.webp",
 
@@ -155,6 +168,8 @@ const roster = [
 
   {
     artist: "Maximo Park",
+    mobileKey: "4",
+    desktopKey: "8",
     image: "/mobile/maximoPark.webp",
     modalImage: "/compressed/maximoPark.webp",
     socials: [
@@ -178,6 +193,8 @@ const roster = [
   },
   {
     artist: "The North",
+    mobileKey: "7",
+    desktopKey: "9",
     image: "/mobile/theNorth.webp",
     modalImage: "/mobile/theNorth.webp",
 
@@ -195,6 +212,8 @@ const roster = [
   },
   {
     artist: "Courting",
+    mobileKey: "5",
+    desktopKey: "10",
     image: "/mobile/courting.webp",
     modalImage: "/compressed/courting.webp",
     socials: [
@@ -225,6 +244,8 @@ const roster = [
 
   {
     artist: "Yves Jarvis",
+    mobileKey: "9",
+    desktopKey: "11",
     image: "/mobile/yvesJarvis.webp",
     modalImage: "/compressed/yvesJarvis.webp",
     socials: [
