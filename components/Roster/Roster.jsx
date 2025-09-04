@@ -17,7 +17,8 @@ export default function Roster() {
   //Definte isMobile as boolean at media breakpoint
   const isMobile = width < 800;
 
-  // Order items depending on viewport, useMemo to avoid unnecessary recalculaions on re-renders
+  // Order items depending on viewport, useMemo to avoid unnecessary recalculaions on re-renders, only runs
+  //when isMobile changes
   const ordered = useMemo(() => {
     const key = isMobile ? "mobileKey" : "desktopKey";
     return [...roster].sort((a, b) => (a[key] ?? 0) - (b[key] ?? 0));

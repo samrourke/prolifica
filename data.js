@@ -157,7 +157,7 @@ const roster = [
     socials: [
       {
         platform: "Instagram",
-        link: "https://www.instagram.com/3lijah3lijah3lijah/am.com/3lijah/",
+        link: "https://www.instagram.com/3lijah3lijah3lijah/",
       },
       {
         platform: "TikTok",
