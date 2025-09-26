@@ -1,24 +1,29 @@
+"use client";
+
 import SmoothScroll from "../../components/SmoothScroll/SmoothScroll";
 import Head from "./head";
 import Navbar from "../../components/Nav/Nav";
-
 import "./globals.css";
-
 import { Space_Grotesk } from "next/font/google";
+import { usePathname } from "next/navigation";
 
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
-  variable: "--space-grotesk", // Optional: for CSS variables
+  variable: "--space-grotesk",
 });
 
 export default function RootLayout({ children }) {
+  // Determine if we are in the Sanity Studio based on the pathname and disable Lenis smooth scroll
+  const pathname = usePathname();
+  const inStudio = pathname?.startsWith("/studio");
+
   return (
     <html lang="en" className={space_grotesk.variable}>
-      <Head></Head>
+      <Head />
       <body>
-        <Navbar />
-        <SmoothScroll> {children}</SmoothScroll>
+        {!inStudio && <Navbar />}
+        {inStudio ? children : <SmoothScroll>{children}</SmoothScroll>}
       </body>
     </html>
   );

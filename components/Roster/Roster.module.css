@@ -184,6 +184,3 @@
 @media (min-width: 900px) {
   .gridContainer { column-count: 3; }
 }
-@media (min-width: 1600px) {
-  .gridContainer { column-count: 4; }
-}

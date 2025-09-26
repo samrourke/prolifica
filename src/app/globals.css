@@ -36,16 +36,14 @@ body {
 }
 
 /* 4) Media defaults */
-img, picture, video, canvas, svg {
+img, picture, video, canvas {
   display: block;
   max-width: 100%;
 }
 img, picture, video, canvas {
   height: auto;
 }
-svg {
-  overflow: visible;
-}
+
 
 /* 5) Typography resets */
 h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {

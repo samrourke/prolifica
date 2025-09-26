@@ -1,19 +1,10 @@
 "use client";
 
 import styles from "./ArtistModal.module.css";
-import data from "../../data";
-import gsap from "gsap";
-import { useRef, useLayoutEffect, useEffect } from "react";
+import { urlFor } from "@/sanity/lib/imageUrl";
 
-/**
- * Props:
- * - selectedArtist: string
- * - isOpen: boolean           // parent controls open/close state
- * - onExited?: () => void     // called AFTER exit animation completes
- */
 export default function ArtistModal({ selectedArtist, isOpen }) {
-  const artist = data.find((a) => a.artist === selectedArtist);
-  if (!artist) return null;
+  if (!selectedArtist) return null;
 
   const icons = {
     Facebook: "/Socials/facebook-cropped.svg",
@@ -28,11 +19,10 @@ export default function ArtistModal({ selectedArtist, isOpen }) {
 
   return (
     <div className={styles.overlayCard} role="dialog" aria-modal="true">
-      {/* Full-bleed image */}
       <img
         className={styles.bg}
-        src={artist.modalImage}
-        alt={artist.artist}
+        src={urlFor(selectedArtist.modalImage).width(1024).format("webp").url()}
+        alt={selectedArtist.name}
         loading="lazy"
         decoding="async"
       />
@@ -41,15 +31,15 @@ export default function ArtistModal({ selectedArtist, isOpen }) {
       <div className={styles.gradient} aria-hidden />
 
       <header className={styles.header}>
-        <h1 className={styles.title}>{artist.artist}</h1>
+        <h1 className={styles.title}>{selectedArtist.name}</h1>
       </header>
 
-      {!!artist.socials?.length && (
+      {!!selectedArtist.socials?.length && (
         <nav
           className={styles.socials}
-          aria-label={`${artist.artist} social links`}
+          aria-label={`${selectedArtist.name} social links`}
         >
-          {artist.socials.map((s, i) => (
+          {selectedArtist.socials.map((s, i) => (
             <a
               key={i}
               href={s.link}
@@ -59,7 +49,11 @@ export default function ArtistModal({ selectedArtist, isOpen }) {
               aria-label={s.platform}
               title={s.platform}
             >
-              <img src={icons[s.platform]} alt="" className={styles.icon} />
+              <img
+                src={icons[s.platform] || "/Socials/World-edit.png"}
+                alt=""
+                className={styles.icon}
+              />
             </a>
           ))}
         </nav>

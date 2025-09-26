@@ -10,10 +10,16 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/orderable-document-list": "^1.4.0",
+    "@sanity/vision": "^4.10.0",
     "@studio-freight/lenis": "^1.0.42",
     "next": "15.3.2",
+    "next-sanity": "^11.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sanity": "^4.10.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -3,7 +3,7 @@
   position: fixed;
   inset: 0 0 auto 0; /* top:0; left/right:0 */
   display: grid;               /* <-- use grid */
-  grid-template-columns: 0px 1fr 180px; /* [burger] [center logo] [spacer] */
+  grid-template-columns: 0px 1fr 180px; 
   align-items: center;
   z-index: 2;
   transition: background-color 1s ease;
