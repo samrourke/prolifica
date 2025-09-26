@@ -1,3 +1,3 @@
-import { Artists } from "../../../../Prolifica 3/src/sanity/schemaTypes/Artists";
+import { Artists } from "./Artists";
 
 export const schemaTypes = [Artists];
