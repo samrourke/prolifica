@@ -15,6 +15,7 @@ const space_grotesk = Space_Grotesk({
 
 export default function RootLayout({ children }) {
   // Determine if we are in the Sanity Studio based on the pathname and disable Lenis smooth scroll
+  //so that it doesn't interfere with the Studio's own scroll handling.
   const pathname = usePathname();
   const inStudio = pathname?.startsWith("/studio");
 
