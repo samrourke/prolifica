@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Node modules and build output
+node_modules/
+dist/
+
+# Sanity generated stuff
+.sanity/
+
+# Environment variables and sensitive files
+.env
+
+# Mac system files (optional)
+.DS_Store
