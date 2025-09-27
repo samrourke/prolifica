@@ -5,12 +5,36 @@ import gsap from "gsap";
 import styles from "./Hero.module.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-import { urlFor } from "@/sanity/lib/imageUrl";
 
-export default function ProlificaHero({ artistRoster, logoSrc = "/logo.png" }) {
-  const images = artistRoster.map((artist) => artist.modalImage);
-  const mobile = artistRoster.map((artist) => artist.mobileImage);
+export default function ProlificaHero({
+  images = [
+    "/compressed/3lijah.webp",
+    "/compressed/candiStaton.webp",
+    "/compressed/circaWaves.webp",
+    "/compressed/courting.webp",
+    "/compressed/disgustingSisters.webp",
+    "/compressed/friendlyFires.webp",
+    "/compressed/kieranShudall.webp",
+    "/compressed/maximoPark.webp",
+    "/compressed/theNorth.webp",
+    "/compressed/twoDoor.webp",
+    "/compressed/yvesJarvis.webp",
+  ],
+  mobile = [
+    "/mobile/candiStaton.webp",
+    "/mobile/circaWaves.webp",
+    "/mobile/courting.webp",
+    "/mobile/disgustingSisters.webp",
+    "/mobile/friendlyFires.webp",
+    "/mobile/kieranShudall.webp",
+    "/mobile/maximoPark.webp",
+    "/mobile/theNorth.webp",
+    "/mobile/twoDoor.webp",
+    "/mobile/yvesJarvis.webp",
+  ],
 
+  logoSrc = "/logo.png",
+}) {
   const [index, setIndex] = useState(0); // not random here
   const indexRef = useRef(0); // live pointer for handlers
 
@@ -201,13 +225,10 @@ export default function ProlificaHero({ artistRoster, logoSrc = "/logo.png" }) {
             >
               <picture>
                 {/* Use the smaller mobile asset on narrow/touch devices */}
-                <source
-                  media="(max-width: 768px)"
-                  srcSet={urlFor(mobileSrc).width(700).format("webp").url()}
-                />
+                <source media="(max-width: 768px)" srcSet={mobileSrc} />
                 {/* Fallback/desktop image */}
                 <img
-                  src={urlFor(desktopSrc).width(1024).format("webp").url()}
+                  src={desktopSrc}
                   alt="Image of Prolifica Management artist"
                   loading={isActive ? "eager" : "lazy"}
                   decoding="async"
